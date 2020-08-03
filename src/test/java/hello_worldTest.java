@@ -7,7 +7,7 @@ public class hello_worldTest {
     @Test
     public void sayHi_should_return_Hello_world(){
         hello_world h = new hello_world();
-        String result = h.sayHi("Donlaporn");
+        String result = h.sayHi();
         assertEquals("Hello World", result);
     }
 
