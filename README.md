@@ -37,4 +37,4 @@ List of test cases
 
 ## workshop-tennis-game
 ### Refactor
- - Change if-else to switch case
+ - Change if to switch case
