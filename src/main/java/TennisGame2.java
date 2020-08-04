@@ -11,7 +11,7 @@ public class TennisGame2{
         this.player2Name = player2Name;
     }
 
-    public String getPoint(int point){
+    private String getPoint(int point){
         switch(point){
             case 0:
                 return "Love";
@@ -34,48 +34,29 @@ public class TennisGame2{
         if (player1Point == player2Point && player1Point >=3)
             score = "Deuce";
 
-        if (player1Point > 0 && player2Point ==0) {
+        if (player1Point > 0 && player2Point ==0 ||
+            player2Point > 0 && player1Point ==0 ||
+            player1Point > player2Point && player1Point < 4||
+            player2Point > player1Point && player2Point < 4 ) {
 
             player1Result = getPoint(player1Point);
-            player2Result = "Love";
-            score = player1Result + "-" + player2Result;
-        }
-        if (player2Point > 0 && player1Point ==0)
-        {
             player2Result = getPoint(player2Point);
-            player1Result = "Love";
+
             score = player1Result + "-" + player2Result;
         }
 
-        if (player1Point > player2Point && player1Point < 4)
-        {
-            player1Result = getPoint(player1Point);
-            player2Result = getPoint(player2Point);
-            score = player1Result + "-" + player2Result;
-        }
-        if (player2Point > player1Point && player2Point < 4)
-        {
-            player2Result = getPoint(player2Point);
-            player1Result = getPoint(player1Point);
-            score = player1Result + "-" + player2Result;
-        }
-
-        if (player1Point > player2Point && player2Point >= 3)
-        {
+        if (player1Point > player2Point && player2Point >= 3) {
             score = "Advantage player1";
         }
 
-        if (player2Point > player1Point && player1Point >= 3)
-        {
+        if (player2Point > player1Point && player1Point >= 3) {
             score = "Advantage player2";
         }
 
-        if (player1Point >=4 && player2Point >=0 && (player1Point - player2Point)>=2)
-        {
+        if (player1Point >=4 && player2Point >=0 && (player1Point - player2Point)>=2) {
             score = "Win for player1";
         }
-        if (player2Point >=4 && player1Point >=0 && (player2Point - player1Point)>=2)
-        {
+        if (player2Point >=4 && player1Point >=0 && (player2Point - player1Point)>=2) {
             score = "Win for player2";
         }
         return score;
