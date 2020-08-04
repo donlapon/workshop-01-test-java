@@ -34,3 +34,7 @@ List of test cases
 - TC04 => write_new_data_to_full_buffer_new_data_should_replace_first_data
   
 - TC05 => read_before_write_data_should_be_null
+
+## workshop-tennis-game
+### Refactor
+ - Change if to switch case
