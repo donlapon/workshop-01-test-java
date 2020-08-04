@@ -13,20 +13,20 @@ public class TennisGame2 {
     public String getScore() {
         String[] textScores = {"Love", "Fifteen", "Thirty", "Forty"};
 
+        // Advantage
+        if (player1Point > player2Point && player2Point >= 3 && (player1Point - player2Point) == 1) {
+            return "Advantage " + player1Name;
+        }
+        if (player2Point > player1Point && player1Point >= 3 && (player2Point - player1Point) == 1) {
+            return "Advantage " + player2Name;
+        }
+
         // Winner
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
             return "Win for " + player1Name;
         }
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
             return "Win for " + player2Name;
-        }
-
-        // Advantage
-        if (player1Point > player2Point && player2Point >= 3) {
-            return "Advantage " + player1Name;
-        }
-        if (player2Point > player1Point && player1Point >= 3) {
-            return "Advantage " + player2Name;
         }
 
         // Deuce
@@ -36,8 +36,7 @@ public class TennisGame2 {
         }
 
         // เสมอกัน
-        boolean isNotDuce = player1Point == player2Point && player1Point < 3;
-        if (isNotDuce) {
+        if (player1Point == player2Point) {
             return textScores[player1Point] + "-All";
         }
 
